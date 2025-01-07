@@ -1,4 +1,13 @@
-// // Exercice 6:Récupéer price avec get et stock avec getUnsafe et regarder les résultats en typescript
+import { D } from "@mobily/ts-belt";
 
-// const obj = { name: 'Laptop', price: 1000, stock: true };
-export const DictFn6 = () => {};
+export const DictFn6 = () => {
+  const obj = { name: "Laptop", price: 1000, stock: true };
+
+  const price = D.get(obj, "price");
+
+  const stock = D.getUnsafe(obj, "stock");
+
+  console.log("EXO DictFn6");
+  console.log(`Price (with get): ${price}`);
+  console.log(`Stock (with getUnsafe): ${stock}`);
+};

@@ -1,6 +1,25 @@
-// // Exercice 3:
+export const DictFn3 = () => {
+  const extractNumberProperties = (obj: Record<string, any>) => {
+    const result: Record<string, number> = {};
 
-// extract les propriétés dans la valeur est un nombre, puis reconstruire un objet avec ces propriétés et values
+    for (const [key, value] of Object.entries(obj)) {
+      if (typeof value === "number") {
+        result[key] = value;
+      }
+    }
 
-// const obj = { name: 'Laptop', price: 1000, stock: true, category: 'Electronics' };
-export const DictFn3 = () => {};
+    return result;
+  };
+
+  // Utilisation
+  const obj = {
+    name: "Laptop",
+    price: 1000,
+    stock: true,
+    category: "Electronics",
+  };
+  const extracted = extractNumberProperties(obj);
+
+  console.log("EXO DictFn3");
+  console.log(extracted);
+};

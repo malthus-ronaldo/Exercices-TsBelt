@@ -1,4 +1,14 @@
-// // Exercice 4: Filtrer l'objet obj pour ne conserver que les propriétés dont le nom commence par 'p'.
+export const DictFn4 = () => {
+  const filterProperties = (obj: Record<string, any>, prefix: string) => {
+    return Object.fromEntries(
+      Object.entries(obj).filter(([key]) => key.startsWith(prefix)),
+    );
+  };
 
-// const obj = { price: 1000, stock: true, brand: 'Dell', processor: 'Intel' };
-export const DictFn4 = () => {};
+  const obj = { price: 1000, stock: true, brand: "Dell", processor: "Intel" };
+
+  const filteredObj = filterProperties(obj, "p");
+
+  console.log("EXO4 Dict");
+  console.log(filteredObj);
+};

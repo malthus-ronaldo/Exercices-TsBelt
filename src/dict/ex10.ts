@@ -1,2 +1,8 @@
-// // Exercice 10: Créer un objet vide, puis lui ajouter la clé name avec la valeur 'Laptop'.
-export const DictFn10 = () => {};
+export const DictFn10 = () => {
+  const obj: Record<string, any> = {};
+
+  obj.name = "Laptop";
+
+  console.log("EXO10 dict");
+  console.log(obj);
+};

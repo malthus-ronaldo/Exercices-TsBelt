@@ -1,3 +1,10 @@
-// // Exercice 1: Créer une fonction qui prend une valeur et la retourne (utiliser une fonction de ts-belt)
+import { F } from "@mobily/ts-belt";
 
-export const functionFn1 = () => {};
+export const FunctionFn1 = () => {
+  const createIdentity = <T>(value: T) => F.identity(value);
+
+  console.log("EXO1 Function");
+  console.log(createIdentity(42));
+  console.log(createIdentity("Hello, World!"));
+  console.log(createIdentity({ name: "Alice", age: 30 }));
+};

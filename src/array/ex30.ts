@@ -1,13 +1,33 @@
-// // Exercice 5: Appliquer des réductions de prix en fonction de critères dynamiquesObjectif : Tu reçois une fonction qui définit le critère de réduction, ainsi qu'un pourcentage de réduction. Tu dois appliquer cette réduction aux produits qui répondent aux critères et calculer le total des prix après réduction.Utilise Array.reduce (pour vérifier si un produit satisfait aux critères de réduction, appliquer la réduction et accumuler le prix total).
+import { Product } from "./type";
 
-// const products = [
-//   { name: 'Laptop', price: 1000, inStock: true },
-//   { name: 'Mouse', price: 25, inStock: false },
-//   { name: 'Keyboard', price: 75, inStock: true },
-// ];
+const products: Product[] = [
+  { name: "Laptop", price: 1000, inStock: true },
+  { name: "Mouse", price: 25, inStock: false },
+  { name: "Keyboard", price: 75, inStock: true },
+];
 
-// // Exemples d'utilisation :
-// // const discountCriteria = (product) => product.price > 100; // Réduction sur les produits à plus de 100
-// // applyDiscount(products, discountCriteria, 10); // Utilisation avec une réduction de 10 %
-// // Ces exercices combinent l'utilisation de reduce avec des fonctions dynamiques et des arguments passés en amont pour rendre la logique adaptable et beaucoup plus difficile. Chaque exercice nécessite de comprendre comment faire interagir reduce avec d'autres fonctions et de gérer les résultats de manière dynamique.
-export const ArrayFn30 = () => {};
+export const applyDiscount = (
+  products: Product[],
+  discountCriteria: (product: Product) => boolean,
+  discountPercentage: number,
+): number => {
+  const totalAfterDiscount = products.reduce((total, product) => {
+    if (discountCriteria(product)) {
+      const discountedPrice = product.price * (1 - discountPercentage / 100);
+      return total + discountedPrice;
+    }
+    return total + product.price;
+  }, 0);
+
+  return totalAfterDiscount;
+};
+
+export const ArrayFn30 = () => {
+  const discountCriteria = (product: Product) => product.price > 100; // Réduction sur les produits à plus de 100
+  const discountPercentage = 10; // Réduction de 10%
+
+  const total = applyDiscount(products, discountCriteria, discountPercentage);
+
+  console.log("EXO30");
+  console.log(`Total price after discount: ${total}`);
+};
